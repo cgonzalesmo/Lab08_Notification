@@ -30,7 +30,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         remoteView.setTextViewText(R.id.title,title)
         remoteView.setTextViewText(R.id.message,message)
-        remoteView.setImageViewResource(R.id.icon,R.drawable.icon_notification)
+        remoteView.setImageViewResource(R.id.icon,R.drawable.ic_alert)
 
         return remoteView
     }
@@ -40,7 +40,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
 
         var builder: NotificationCompat.Builder = NotificationCompat.Builder(applicationContext, channelId)
-            .setSmallIcon(R.drawable.icon_notification)
+            .setSmallIcon(R.drawable.ic_alert)
             .setAutoCancel(true)
             .setVibrate(longArrayOf(1000, 1000, 1000, 1000))
             .setOnlyAlertOnce(true)

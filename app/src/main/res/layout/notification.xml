@@ -1,51 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linear_layout"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="20dp">
-
-    <!-- Parent Layout of ImageView -->
+    android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <!--Image to be displayed beside the notification text-->
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="5dp"
-            android:src="@drawable/icon_notification" />
-    </LinearLayout>
-
-    <!-- Parent layout for holding the Title and the Body-->
-    <LinearLayout
-        android:layout_width="0dp"
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:orientation="horizontal"
+        android:padding="20dp"
+        tools:ignore="MissingConstraints"
+        android:baselineAligned="false">
+        <!-- Parent Layout of ImageView -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <!-- TextView for Title -->
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:textColor="#000"
-            android:textStyle="bold" />
+            <!--Image to be displayed beside the notification text-->
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_alert"
+                android:contentDescription="@string/todo" />
+        </LinearLayout>
 
-        <!-- TextView for Body -->
-        <TextView
-            android:id="@+id/message"
-            android:layout_width="match_parent"
+        <!-- Parent layout for holding the Title and the Body-->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Message"
-            android:textSize="15sp" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <!-- TextView for Title -->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <!-- TextView for Body -->
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/message"
+                android:textSize="17sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout"
+        android:orientation="horizontal"
+        tools:ignore="DuplicateIds,MissingConstraints">
 
-</LinearLayout>
+
+        <Button
+            android:id="@+id/firstButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/azulino"
+            android:backgroundTint="@color/teal_200"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Button
+            android:id="@+id/secondButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@color/azulino"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:text="@string/view" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

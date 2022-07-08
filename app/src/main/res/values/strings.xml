@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Lab08_Notification</string>
+    <string name="title">Title</string>
+    <string name="message">Message</string>
+    <string name="todo">TODO</string>
+    <string name="home">Home</string>
+    <string name="view">Ver</string>
+    <string name="este_es_el_laboratorio_8">Este es el laboratorio 8</string>
 </resources>
