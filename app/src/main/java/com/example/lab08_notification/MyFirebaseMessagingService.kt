@@ -8,6 +8,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -18,6 +19,19 @@ const val channelName = "com.example.lab08_notification"
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
+    override fun onNewToken(token: String) {
+        Log.d("TOKEN", "Refreshed token: $token")
+
+        // If you want to send messages to this application instance or
+        // manage this apps subscriptions on the server side, send the
+        // FCM registration token to your app server.
+        sendRegistrationToServer(token)
+    }
+    private fun sendRegistrationToServer(token: String?) {
+        // TODO: Implement this method to send token to your app server.
+        Log.d("TOKEN", "sendRegistrationTokenToServer($token)")
+    }
+
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         if (remoteMessage.notification!=null){
             generateNotification(remoteMessage.notification!!.title!!,remoteMessage.notification!!.body!!)
@@ -25,6 +39,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
 
+    @SuppressLint("RemoteViewLayout")
     fun getRemoteView(title: String, message: String): RemoteViews {
         val remoteView = RemoteViews("com.example.lab08_notification", R.layout.notification)
 
